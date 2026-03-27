@@ -148,3 +148,18 @@ nav {
   font-size: 16px;
   font-weight: bold;
 }
+
+/* Item Count Badge */
+.item-count {
+  background: #FFAB91;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FF8A65;
+}

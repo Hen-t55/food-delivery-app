@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 import FoodList from "../components/FoodList";
 
@@ -12,6 +12,7 @@ const foods = [
 
 function Home() {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const [notification, setNotification] = useState("");
 
   useEffect(() => {
@@ -28,10 +29,14 @@ function Home() {
     setNotification(`${food.name} added to cart! ✅`);
   }
 
+  function getItemCount(foodId) {
+    return cartItems.filter((item) => item.id === foodId).length;
+  }
+
   return (
     <div>
       {notification && <div className="notification">{notification}</div>}
-      <FoodList foods={foods} addToCart={handleAddToCart} />
+      <FoodList foods={foods} addToCart={handleAddToCart} getItemCount={getItemCount} />
     </div>
   );
 }
