@@ -15,10 +15,7 @@ function CartPage() {
           <p>{item.name} - ₹{item.price}</p>
           <button
             className="remove-btn"
-            onClick={() => {
-  alert(item.name + " removed from cart!");
-  dispatch(removeFromCart(index));
-}}
+            onClick={() => dispatch(removeFromCart(index))}
           >
             Remove
           </button>
