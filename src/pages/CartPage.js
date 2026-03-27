@@ -13,12 +13,15 @@ function CartPage() {
       {cartItems.map((item, index) => (
         <div className="cart-item" key={index}>
           <p>{item.name} - ₹{item.price}</p>
-          <button className="remove-btn" onClick={() => {
-  console.log("Item removed:", item.name, "| Price: ₹", item.price);
+          <button
+            className="remove-btn"
+            onClick={() => {
+  alert(item.name + " removed from cart!");
   dispatch(removeFromCart(index));
-}}>
-  Remove
-</button>
+}}
+          >
+            Remove
+          </button>
         </div>
       ))}
       <h3 className="total">Total: ₹{total}</h3>
